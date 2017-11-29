@@ -6,6 +6,8 @@ def translate(w):
     w = w.lower()
     if w in data:
         return data[w]
+    elif w.title() in data: #if user entered "texas" this will check for "Texas" as well
+        return data[w.title()]
     elif len(get_close_matches(w, data.keys())) > 0:
         yn = input("Did you mean %s instead? Enter Y for yes, N for no: " % get_close_matches(w, data.keys())[0])
         if yn == "Y":
